@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статистика — Spendy</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">S</span>
+        <span class="brand-name">Spendy</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Главная</a>
+        <a href="form.html">Добавить</a>
+        <a href="stats.html">Статистика</a>
+        <a href="about.html">О проекте</a>
+      </nav>
+      <div class="header-actions">
+        <div class="currency-switch" id="currencySwitch" hidden></div>
+        <div class="user-chip" id="userChip" hidden>
+          <span class="uname"></span>
+          <button class="btn-ghost" id="logoutBtn">Выйти</button>
+        </div>
+      </div>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Статистика трат</h1>
+    <p class="page-sub">Анализируйте расходы за разные периоды. График плавно меняется при переключении.</p>
+
+    <!-- Переключатель периода -->
+    <div class="period-bar">
+      <button data-period="day">День</button>
+      <button data-period="week" class="active">Неделя</button>
+      <button data-period="month">Месяц</button>
+      <button data-period="halfyear">6 месяцев</button>
+      <button data-period="year">12 месяцев</button>
+    </div>
+
+    <!-- Сводка по периоду -->
+    <section class="stats-summary">
+      <div class="stat-card glass">
+        <div class="label"><span class="ico">💸</span> Потрачено <span id="sPeriodLabel">за неделю</span></div>
+        <div class="value grad" id="sTotal">0 ₸</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="label"><span class="ico">🧾</span> Записей за период</div>
+        <div class="value" id="sCount">0</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="label"><span class="ico">📈</span> Средний расход</div>
+        <div class="value" id="sAvg">0 ₸</div>
+      </div>
+    </section>
+
+    <!-- Графики -->
+    <section class="charts-grid">
+      <div class="chart-card glass">
+        <h3>Динамика трат</h3>
+        <p class="hint" id="barHint">Динамика трат по периодам</p>
+        <div class="bar-chart" id="barChart"></div>
+      </div>
+
+      <div class="chart-card glass">
+        <h3>По категориям</h3>
+        <p class="hint">Доля каждой категории за период</p>
+        <div class="donut-wrap">
+          <div class="donut" id="donut">
+            <div class="donut-svg" id="donutSvg"></div>
+            <div class="donut-center" id="donutCenter"></div>
+          </div>
+          <div class="legend" id="donutLegend"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span class="brand-mini">Spendy</span> — учёт расходов
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/stats.js"></script>
+</body>
+</html>

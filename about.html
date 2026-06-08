@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О проекте — Spendy</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">S</span>
+        <span class="brand-name">Spendy</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Главная</a>
+        <a href="form.html">Добавить</a>
+        <a href="stats.html">Статистика</a>
+        <a href="about.html">О проекте</a>
+      </nav>
+      <div class="header-actions">
+        <div class="currency-switch" id="currencySwitch" hidden></div>
+        <div class="user-chip" id="userChip" hidden>
+          <span class="uname"></span>
+          <button class="btn-ghost" id="logoutBtn">Выйти</button>
+        </div>
+      </div>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">О проекте <span class="gradient-text">Spendy</span></h1>
+    <p class="page-sub">Личный трекер расходов с аналитикой и удобным учётом трат.</p>
+
+    <div class="about-grid">
+      <div>
+        <div class="about-card glass" style="margin-bottom:22px">
+          <h3>🎯 Цель проекта</h3>
+          <p>Spendy помогает вести учёт ежедневных расходов: записывать траты по категориям, отмечать оплаченные, видеть, куда уходят деньги, и анализировать динамику за день, неделю, месяц, полгода и год.</p>
+          <p>Все данные сохраняются прямо в браузере (localStorage), поэтому работают и без интернета, и не теряются между сессиями.</p>
+          <div class="feature-chips">
+            <span>💾 Хранение в localStorage</span>
+            <span>💱 ₸ / $ / ₽</span>
+            <span>📊 Анимированные графики</span>
+            <span>🔍 Поиск и фильтры</span>
+            <span>✏️ Редактирование</span>
+            <span>🏷️ Свои категории</span>
+          </div>
+        </div>
+
+        <div class="about-card glass">
+          <h3>📖 Как пользоваться</h3>
+          <ul class="steps">
+            <li><span class="num">1</span><div><b>Зарегистрируйтесь</b> на главной — введите имя, email и пароль. Аккаунт создаётся локально.</div></li>
+            <li><span class="num">2</span><div><b>Добавьте расход</b> на странице «Добавить»: название, сумма, категория и дата. Не нашли категорию — создайте свою.</div></li>
+            <li><span class="num">3</span><div><b>Отмечайте оплаченные</b> траты галочкой и <b>удаляйте</b> лишнее кнопкой с подтверждением.</div></li>
+            <li><span class="num">4</span><div><b>Смотрите статистику</b> — переключайте период и наблюдайте, как плавно меняются графики.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="about-card glass">
+        <h3>👤 Автор</h3>
+        <div class="author-row"><span class="k">ФИО</span><span class="v">Мекежанов Даниэль Адильжанович</span></div>
+        <div class="author-row"><span class="k">Группа</span><span class="v">15 ТИС</span></div>
+        <div class="author-row"><span class="k">Контакт</span><span class="v"><a href="mailto:mekezhanovd@gmail.com" class="gradient-text">mekezhanovd@gmail.com</a></span></div>
+        <div class="author-row"><span class="k">Стек</span><span class="v">HTML5 · CSS3 · JavaScript (ES6+)</span></div>
+        <div class="author-row"><span class="k">Хранение</span><span class="v">localStorage</span></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span class="brand-mini">Spendy</span> — учёт расходов
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initHeader);</script>
+</body>
+</html>

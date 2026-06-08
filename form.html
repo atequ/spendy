@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавить расход — Spendy</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">S</span>
+        <span class="brand-name">Spendy</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Главная</a>
+        <a href="form.html">Добавить</a>
+        <a href="stats.html">Статистика</a>
+        <a href="about.html">О проекте</a>
+      </nav>
+      <div class="header-actions">
+        <div class="currency-switch" id="currencySwitch" hidden></div>
+        <div class="user-chip" id="userChip" hidden>
+          <span class="uname"></span>
+          <button class="btn-ghost" id="logoutBtn">Выйти</button>
+        </div>
+      </div>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title" id="formTitle">Новый расход</h1>
+    <p class="page-sub" id="formSub">Заполните данные о трате — она появится в списке и в статистике.</p>
+
+    <div class="form-card glass">
+      <div class="form-grid">
+        <div class="field full">
+          <label>Название <span class="req">*</span></label>
+          <input type="text" class="input" id="fTitle" placeholder="Например: Обед в кафе">
+        </div>
+
+        <div class="field">
+          <label>Сумма <span class="req">*</span></label>
+          <div class="amount-wrap">
+            <input type="text" class="input" id="fAmount" placeholder="0" inputmode="decimal">
+            <span class="cur" id="curLabel">₸</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Дата <span class="req">*</span></label>
+          <input type="date" class="input" id="fDate">
+        </div>
+
+        <div class="field full">
+          <label>Категория <span class="req">*</span></label>
+          <select class="select" id="fCategory"></select>
+          <div class="cat-add-row">
+            <input type="text" class="input" id="newCategory" placeholder="Своя категория…">
+            <button class="btn btn-outline" id="addCategoryBtn" type="button">＋ Добавить</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" id="saveBtn">Сохранить</button>
+        <a class="btn btn-outline" href="index.html">Отмена</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span class="brand-mini">Spendy</span> — учёт расходов
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>

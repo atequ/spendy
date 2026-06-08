@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spendy — трекер расходов</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">S</span>
+        <span class="brand-name">Spendy</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Главная</a>
+        <a href="form.html">Добавить</a>
+        <a href="stats.html">Статистика</a>
+        <a href="about.html">О проекте</a>
+      </nav>
+      <div class="header-actions">
+        <div class="currency-switch" id="currencySwitch" hidden></div>
+        <div class="user-chip" id="userChip" hidden>
+          <span class="uname"></span>
+          <button class="btn-ghost" id="logoutBtn">Выйти</button>
+        </div>
+      </div>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </header>
+
+  <!-- Экран авторизации (виден до входа) -->
+  <section class="auth-screen" id="authScreen">
+    <div class="auth-card glass">
+      <span class="auth-badge">● Личный кабинет</span>
+      <h2>Контролируй расходы <span class="gradient-text">умно</span></h2>
+      <p class="sub">Войдите или создайте аккаунт, чтобы вести учёт трат.</p>
+
+      <div class="auth-tabs">
+        <button data-tab="login" class="active">Вход</button>
+        <button data-tab="register">Регистрация</button>
+      </div>
+
+      <!-- Форма входа -->
+      <div class="auth-form active" id="loginForm">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" class="input" id="loginEmail" placeholder="you@mail.com">
+        </div>
+        <div class="field">
+          <label>Пароль</label>
+          <input type="password" class="input" id="loginPassword" placeholder="••••••">
+        </div>
+        <button class="btn btn-primary btn-block" id="loginBtn">Войти</button>
+      </div>
+
+      <!-- Форма регистрации -->
+      <div class="auth-form" id="registerForm">
+        <div class="field">
+          <label>Имя</label>
+          <input type="text" class="input" id="regName" placeholder="Как к вам обращаться?">
+        </div>
+        <div class="field">
+          <label>Email (Gmail)</label>
+          <input type="email" class="input" id="regEmail" placeholder="you@gmail.com">
+        </div>
+        <div class="field">
+          <label>Пароль</label>
+          <input type="password" class="input" id="regPassword" placeholder="минимум 4 символа">
+        </div>
+        <button class="btn btn-primary btn-block" id="registerBtn">Создать аккаунт</button>
+      </div>
+
+      <div class="form-msg" id="authMsg"></div>
+      <p class="auth-note">Данные аккаунта хранятся локально в вашем браузере (localStorage) и не отправляются на сервер.</p>
+    </div>
+  </section>
+
+  <!-- Дашборд (виден после входа) -->
+  <main class="app-shell container" id="appShell" hidden>
+    <section class="hero">
+      <h1 class="greeting"><span id="greetHello"></span><span class="gradient-text" id="greetName"></span> <span class="wave">👋</span></h1>
+      <p class="date" id="greetDate"></p>
+    </section>
+
+    <!-- Сводка -->
+    <section class="summary">
+      <div class="stat-card glass">
+        <div class="label"><span class="ico">🧾</span> Всего записей</div>
+        <div class="value" id="statCount">0</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="label"><span class="ico">💰</span> Потрачено всего</div>
+        <div class="value grad" id="statTotal">0 ₸</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="label"><span class="ico">🏆</span> Топ-категория</div>
+        <div class="value" id="statTop">—</div>
+      </div>
+    </section>
+
+    <!-- Список расходов -->
+    <section class="panel glass">
+      <div class="panel-head">
+        <h3>Мои расходы</h3>
+        <span class="count-pill"><span id="listCount">0</span> шт.</span>
+        <div class="spacer"></div>
+        <a class="btn btn-primary" href="form.html">＋ Добавить расход</a>
+      </div>
+
+      <div class="filters">
+        <div class="search-box">
+          <span class="ico">🔍</span>
+          <input type="text" class="input" id="searchInput" placeholder="Поиск по названию…">
+        </div>
+        <select class="select" id="filterCategory"></select>
+        <select class="select" id="filterStatus">
+          <option value="all">Все статусы</option>
+          <option value="paid">Оплачено</option>
+          <option value="unpaid">Запланировано</option>
+        </select>
+      </div>
+
+      <div class="expense-list" id="expenseList"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span class="brand-mini">Spendy</span> — учёт расходов · {year}
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.querySelector('.site-footer').innerHTML = document.querySelector('.site-footer').innerHTML.replace('{year}', new Date().getFullYear());</script>
+</body>
+</html>
